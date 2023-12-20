@@ -37,6 +37,10 @@ export default {
         'repeat': 'repeat',
         'no-repeat': 'no-repeat',
       },
+      
+      fontFamily: {
+        'theme': ['Work Sans', 'sans-serif']
+      },
 
     },
   },

@@ -1,11 +1,37 @@
-import React from 'react'
+import React, { useState } from "react";
+import starIcon from "../assets/images/icon-star.svg";
+import Accordion from "./Accordion";
 
-const Card = () => {
+const Card = ({ faqList }) => {
+  const [openAccordion, setOpenAccordion] = useState(null);
+
+  const closeOthers = () => {
+    setOpenAccordion(null);
+  };
+
+  const handleAccordionClick = (index) => {
+    setOpenAccordion(index);
+  };
+
   return (
-    <div className='absolute z-10 -top-28 left-0 mx-7 p-5 bg-white rounded-lg'>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos consequatur, nemo est hic ducimus quaerat maiores commodi possimus magni sequi! Explicabo numquam non voluptatem, deleniti eos cupiditate consequatur repudiandae ducimus.
+    <div className="absolute z-10 top-24 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-5 bg-white rounded-lg w-[325px] flex flex-col gap-2">
+      <div className="flex flex-row gap-5">
+        <img src={starIcon} alt="star icon" className="w-7" />
+        <h1 className="text-3xl text-dark-purple font-theme font-bold">FAQs</h1>
+      </div>
+      <div className="flex flex-col ">
+        {faqList.map((faq, index) => (
+          <div key={index}>
+            <Accordion
+              faq={faq}
+              key={index}
+              isLastItem={index === faqList.length - 1}
+            />
+          </div>
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
