@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.fade-in {
+    transition:  0.5 ease-in-out;
+}
+
+.fade-in.show{
+    opacity: 1;
+}
